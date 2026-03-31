@@ -8,8 +8,26 @@
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  /* Century Gothic is primary; Questrial is the fallback */
+  --font-sans: "Century Gothic", var(--font-questrial), ui-sans-serif, system-ui, sans-serif;
+
+  /* --- E-commerce Semantic Color Palette --- */
+  /* Brand Backgrounds */
+  --color-header: #03484D;
+  --color-nav: #0E3B3E;
+
+  /* Primary Accents */
+  --color-accent-primary: #00CAD7;
+  --color-accent-secondary: #15ADB7;
+  --color-price-active: #0AAEB9;
+  --color-accent-blue: #14B1F0;
+
+  /* Neutrals & Grays */
+  --color-footer: #393939;
+  --color-text-muted: #697475;
+  --color-input-placeholder: #ABA3A3;
+  --color-btn-gray: #B6B6B6;
+  --color-bg-main: #FFFFFF;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -19,8 +37,16 @@
   }
 }
 
+/* Local Century Gothic Font Setup */
+@font-face {
+  font-family: 'Century Gothic';
+  src: url('/fonts/CenturyGothic-Regular.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
 }

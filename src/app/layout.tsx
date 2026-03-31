@@ -1,15 +1,13 @@
 import type { Metadata } from 'next';
-import { Geist, Geist_Mono } from 'next/font/google';
+import { Questrial } from 'next/font/google';
 import './globals.css';
 
-const geistSans = Geist({
-  variable: '--font-geist-sans',
+// Using Google Font Fallback (Questrial) for Century Gothic
+const questrial = Questrial({
+  weight: '400',
   subsets: ['latin'],
-});
-
-const geistMono = Geist_Mono({
-  variable: '--font-geist-mono',
-  subsets: ['latin'],
+  variable: '--font-questrial',
+  display: 'swap',
 });
 
 export const metadata: Metadata = {
@@ -23,11 +21,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html
-      lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
-    >
-      <body className="min-h-full flex flex-col">{children}</body>
+    <html lang="en" className={`${questrial.variable} h-full antialiased`}>
+      <body className="font-sans min-h-full flex flex-col">{children}</body>
     </html>
   );
 }
