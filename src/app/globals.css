@@ -28,6 +28,9 @@
   --color-input-placeholder: #ABA3A3;
   --color-btn-gray: #B6B6B6;
   --color-bg-main: #FFFFFF;
+
+  /* Badges & Overlays */
+  --color-badge-yellow: #FDDE3B;
 }
 
 @media (prefers-color-scheme: dark) {
