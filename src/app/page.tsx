@@ -2,6 +2,7 @@ import Button from '@/components/ui/Button';
 import PriceDisplay from '@/components/ui/PriceDisplay';
 import IconButtonBadge from '@/components/ui/IconButtonBadge';
 import Image from 'next/image';
+import ProductCard from '@/components/ui/ProductCard';
 
 export default function Home() {
   return (
@@ -33,6 +34,56 @@ export default function Home() {
           label="Cart"
           count={3}
         />
+      </div>
+      <div className="w-full max-w-[1400px] mx-auto mt-10">
+        <h2 className="text-2xl font-bold mb-6 text-footer font-sans">
+          Featured Products
+        </h2>
+        {/* Responsive grid matching the 6-column design from the reference image */}
+        <div className="grid grid-cols-2 lg:grid-cols-4 xl:grid-cols-6 gap-6">
+          <ProductCard
+            image="/demo-images/demo-tv.jpg"
+            brandName="Bin Bakar Electronics"
+            productName="Samsung 40N5300 S.."
+            originalPrice={60000}
+            currentPrice={56000}
+          />
+          <ProductCard
+            image="/demo-images/demo-tv.jpg"
+            brandName="Bin Bakar Electronics"
+            productName="Samsung Automatic.."
+            originalPrice={110000}
+            currentPrice={101000}
+          />
+          <ProductCard
+            image="/demo-images/demo-tv.jpg"
+            brandName="Bin Bakar Electronics"
+            productName="Haier HSU-12HFMAC .."
+            originalPrice={56000}
+            currentPrice={70000}
+          />
+          <ProductCard
+            image="/demo-images/demo-tv.jpg"
+            brandName="Bin Bakar Electronics"
+            productName="Anex Roti Maker .."
+            originalPrice={56000}
+            currentPrice={70000}
+          />
+          <ProductCard
+            image="/demo-images/demo-tv.jpg"
+            brandName="Bin Bakar Electronics"
+            productName="Gree GS-12FITH.."
+            originalPrice={56000}
+            currentPrice={86000}
+          />
+          <ProductCard
+            image="/demo-images/demo-tv.jpg"
+            brandName="Bin Bakar Electronics"
+            productName="Gree Air Conditioner.."
+            originalPrice={56000}
+            currentPrice={171000}
+          />
+        </div>
       </div>
     </div>
   );
