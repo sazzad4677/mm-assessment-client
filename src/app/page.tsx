@@ -8,6 +8,7 @@ import Image from 'next/image';
 import ProductCard from '@/components/ui/ProductCard';
 import SectionTitle from '@/components/ui/SectionTitle';
 import TabNavigation from '@/components/ui/TabNavigation';
+import CategoryCard from '@/components/ui/CategoryCard';
 
 const CATEGORIES = [
   'KITCHEN APPLIANCES',
@@ -109,6 +110,36 @@ export default function Home() {
             productName="Gree Air Conditioner.."
             originalPrice={56000}
             currentPrice={171000}
+          />
+        </div>
+      </div>
+
+      <div className="w-full max-w-[1400px] mx-auto mt-12">
+        <SectionTitle
+          highlightWord="Shop"
+          mainText="by Category"
+          className="mb-6"
+        />
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+          <CategoryCard
+            image="/demo-images/category-demo.png"
+            title="Electronics"
+            href="/category/kitchen-appliances"
+          />
+          <CategoryCard
+            image="/demo-images/category-demo-2.png"
+            title="Fashion"
+            href="/category/cell-phones"
+          />
+          <CategoryCard
+            image="/demo-images/category-demo-2.png"
+            title="Appliances"
+            href="/category/cell-phones"
+          />
+          <CategoryCard
+            image="/demo-images/category-demo-2.png"
+            title="Babies Store"
+            href="/category/cell-phones"
           />
         </div>
       </div>
