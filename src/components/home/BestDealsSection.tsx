@@ -40,22 +40,20 @@ export default function BestDealsSection({
   };
 
   return (
-    <div className="w-full max-w-[1400px] mx-auto mt-10 px-4 md:px-10 lg:px-0">
+    <div className="w-full max-w-[1500px] mx-auto mt-10 px-4">
       {/* Header & Tabs */}
-      <div className="flex flex-col xl:flex-row xl:items-end justify-between gap-6 mb-6 border-b border-btn-gray/20 pb-2 xl:pb-0">
+      <div className="flex flex-row items-end justify-between mb-10">
         <SectionTitle
           highlightWord="Best"
           mainText="Deals"
           className="flex-shrink-0"
         />
         {tabNames.length > 0 && (
-          <div className="w-full xl:w-auto xl:max-w-[70%] flex-grow overflow-x-auto scroolbar-hide">
-            <TabNavigation
-              tabs={tabNames}
-              activeTab={activeTab}
-              onTabChange={handleTabChange}
-            />
-          </div>
+          <TabNavigation
+            tabs={tabNames}
+            activeTab={activeTab}
+            onTabChange={handleTabChange}
+          />
         )}
       </div>
 

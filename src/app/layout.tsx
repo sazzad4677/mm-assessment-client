@@ -3,6 +3,7 @@ import { Questrial } from 'next/font/google';
 import './globals.css';
 import TopHeader from '@/components/layout/TopHeader';
 import CategoryNav from '@/components/layout/CategoryNav';
+import Footer from '@/components/layout/Footer';
 
 // Using Google Font Fallback (Questrial) for Century Gothic
 const questrial = Questrial({
@@ -28,6 +29,7 @@ export default function RootLayout({
         <TopHeader />
         <CategoryNav />
         <main className="flex-grow">{children}</main>
+        <Footer />
       </body>
     </html>
   );
