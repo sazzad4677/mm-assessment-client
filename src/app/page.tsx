@@ -3,6 +3,7 @@ import PriceDisplay from '@/components/ui/PriceDisplay';
 import IconButtonBadge from '@/components/ui/IconButtonBadge';
 import Image from 'next/image';
 import ProductCard from '@/components/ui/ProductCard';
+import SectionTitle from '@/components/ui/SectionTitle';
 
 export default function Home() {
   return (
@@ -35,11 +36,13 @@ export default function Home() {
           count={3}
         />
       </div>
+
       <div className="w-full max-w-[1400px] mx-auto mt-10">
-        <h2 className="text-2xl font-bold mb-6 text-footer font-sans">
-          Featured Products
-        </h2>
-        {/* Responsive grid matching the 6-column design from the reference image */}
+        <SectionTitle
+          highlightWord="Featured"
+          mainText="Products"
+          className="mb-6"
+        />
         <div className="grid grid-cols-2 lg:grid-cols-4 xl:grid-cols-6 gap-6">
           <ProductCard
             image="/demo-images/demo-tv.jpg"
