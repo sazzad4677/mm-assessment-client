@@ -49,12 +49,14 @@ export default function TabNavigation({
   };
 
   return (
-    <div className={`flex items-center justify-end w-auto ${className}`}>
+    <div
+      className={`flex items-center justify-start lg:justify-end w-full lg:w-max max-w-full ${className}`}
+    >
       {/* Scrollable Tabs Container */}
       <div
         ref={scrollContainerRef}
         onScroll={checkScroll}
-        className="flex flex-row overflow-x-auto gap-[35px] items-baseline w-full pr-4 scroll-smooth [&::-webkit-scrollbar]:hidden"
+        className="flex flex-row overflow-x-auto gap-4 md:gap-[35px] items-baseline w-full md:pr-4 scroll-smooth [&::-webkit-scrollbar]:hidden snap-x"
         style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
       >
         {tabs.map((tab) => {
@@ -63,10 +65,10 @@ export default function TabNavigation({
             <button
               key={tab}
               onClick={() => onTabChange(tab)}
-              className={`whitespace-nowrap antialiased uppercase font-['Roboto',sans-serif] text-[19px] font-normal pb-2 border-b-[3px] transition-all duration-200 cursor-pointer ${
+              className={`whitespace-nowrap snap-start antialiased uppercase font-['Roboto',sans-serif] text-[13px] md:text-[19px] font-normal pb-1 md:pb-2 border-b-[2px] md:border-b-[3px] transition-all duration-200 cursor-pointer ${
                 isActive
                   ? 'text-accent-primary border-accent-primary'
-                  : 'text-black border-none hover:text-accent-primary'
+                  : 'text-black border-transparent hover:text-accent-primary'
               }`}
             >
               {tab}
@@ -76,7 +78,7 @@ export default function TabNavigation({
       </div>
 
       {/* Navigation Arrows Group */}
-      <div className="flex items-center gap-1 flex-shrink-0 ml-4 pb-2 hidden md:flex">
+      <div className="flex items-center gap-1 flex-shrink-0 ml-4 pb-2">
         <button
           disabled={!canScrollLeft}
           onClick={() => scroll('left')}

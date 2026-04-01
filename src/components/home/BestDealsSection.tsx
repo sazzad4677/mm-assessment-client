@@ -40,26 +40,29 @@ export default function BestDealsSection({
   };
 
   return (
-    <div className="w-full max-w-[1500px] mx-auto mt-10 px-4">
+    <div className="w-full mx-auto mt-6 md:mt-10 px-4 md:px-8 xl:px-20">
       {/* Header & Tabs */}
-      <div className="flex flex-row items-end justify-between mb-10">
+      <div className="flex flex-col lg:flex-row items-start lg:items-center justify-between mb-6 md:mb-10 gap-4 md:gap-6 w-full">
         <SectionTitle
           highlightWord="Best"
           mainText="Deals"
-          className="flex-shrink-0"
+          className="flex-shrink-0 px-4 md:px-0"
         />
-        {tabNames.length > 0 && (
-          <TabNavigation
-            tabs={tabNames}
-            activeTab={activeTab}
-            onTabChange={handleTabChange}
-          />
-        )}
+        <div className="w-full lg:flex-1 lg:min-w-0 overflow-hidden flex lg:justify-end">
+          {tabNames.length > 0 && (
+            <TabNavigation
+              tabs={tabNames}
+              activeTab={activeTab}
+              onTabChange={handleTabChange}
+              className="px-4 md:px-0 lg:px-0"
+            />
+          )}
+        </div>
       </div>
 
       {/* Product Grid */}
       <div
-        className={`grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 xl:grid-cols-5 gap-6 transition-opacity duration-300 ${isPending ? 'opacity-50' : 'opacity-100'}`}
+        className={`grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 gap-4 md:gap-6 px-4 md:px-0 transition-opacity duration-300 ${isPending ? 'opacity-50' : 'opacity-100'}`}
       >
         {products.map((product) => (
           <ProductCard

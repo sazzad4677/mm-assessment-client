@@ -25,10 +25,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${questrial.variable} h-full antialiased`}>
-      <body className="font-sans min-h-full flex flex-col">
+      <body className="font-sans min-h-full flex flex-col w-full overflow-x-hidden">
         <TopHeader />
         <CategoryNav />
-        <main className="flex-grow">{children}</main>
+        <main className="flex-grow w-full">{children}</main>
         <Footer />
       </body>
     </html>

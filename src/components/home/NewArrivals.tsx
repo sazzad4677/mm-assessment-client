@@ -9,17 +9,17 @@ export default async function NewArrivals() {
   const products = allProducts.slice(0, 10);
 
   return (
-    <section className="w-full bg-white py-12 font-sans">
-      <div className="max-w-[1500px] mx-auto px-4">
+    <section className="w-full bg-white py-8 md:py-12 font-sans px-0 md:px-4">
+      <div className="w-full mx-auto px-4 md:px-8 xl:px-20">
         {/* Section Header */}
         <SectionTitle
           highlightWord="New"
           mainText="Arrivals"
-          className="mb-8 ml-4"
+          className="mb-6 md:mb-8 ml-4"
         />
 
         {/* Product Grid */}
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4 lg:gap-6 ">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 gap-4 lg:gap-6 px-4 md:px-0">
           {products.map((product) => (
             <ProductCard
               key={product.id}

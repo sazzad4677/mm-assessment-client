@@ -22,11 +22,11 @@ const socialIcons = [
 export default function CategoryNav() {
   return (
     <nav className="w-full bg-nav py-3 md:py-[16px] px-4">
-      <div className="max-w-[1500px] mx-auto flex flex-col lg:flex-row justify-between items-center gap-4 lg:gap-0">
+      <div className="w-full mx-auto xl:px-16 flex flex-col xl:flex-row justify-between items-center gap-4 xl:gap-0">
         {/* Left Group: Browse Categories & Navigation Links */}
-        <div className="flex flex-col md:flex-row items-center gap-4 md:gap-6 lg:gap-[45px] w-full lg:w-auto">
+        <div className="flex flex-col md:flex-row items-center justify-center gap-4 md:gap-6 xl:gap-[45px] w-full xl:w-auto">
           {/* Browse Categories Button */}
-          <button className="flex items-center gap-3 text-white hover:opacity-80 transition-opacity bg-white/10 md:bg-transparent px-4 py-2 md:p-0 rounded-md md:rounded-none w-full md:w-auto justify-center md:justify-start">
+          <button className="flex items-center gap-3 text-white hover:opacity-80 transition-opacity bg-white/10 md:bg-transparent px-4 py-2 md:p-0 rounded-md md:rounded-none w-full md:w-auto justify-center md:justify-start shrink-0">
             <Image
               src="/icons/hamburger.svg"
               alt="Menu"
@@ -54,7 +54,7 @@ export default function CategoryNav() {
         </div>
 
         {/* Right Side: Social Icons */}
-        <div className="flex items-center gap-4 md:gap-5 mt-2 lg:mt-0">
+        <div className="flex items-center justify-center gap-4 md:gap-5 mt-2 xl:mt-0 shrink-0">
           {socialIcons.map((icon) => (
             <Link
               key={icon.alt}

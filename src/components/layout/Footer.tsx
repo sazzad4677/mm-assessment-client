@@ -71,7 +71,7 @@ export default function Footer() {
   return (
     <footer className="w-full bg-footer font-sans">
       {/* ── Main Footer Content ── */}
-      <div className="max-w-[1500px] mx-auto px-4 pt-16 pb-12">
+      <div className="w-full mx-auto px-4 md:px-8 xl:px-20 pt-16 pb-12">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
           {/* ── Brand & Contact ── */}
           <div>
@@ -160,7 +160,7 @@ export default function Footer() {
 
       {/* ── Copyright Bar ── */}
       <div className="w-full bg-black/40">
-        <div className="max-w-[1500px] mx-auto px-4 py-4">
+        <div className="w-full mx-auto px-4 md:px-8 xl:px-20 py-4">
           <p className="text-gray-400 text-sm">
             © {new Date().getFullYear()} Winstore. All Rights Reserved.
           </p>

@@ -4,9 +4,9 @@ import Link from 'next/link';
 export default function TopHeader() {
   return (
     <header className="bg-header w-full text-white">
-      <div className="container mx-auto px-4 py-4 flex flex-col md:flex-row items-center justify-between gap-4 md:gap-0">
+      <div className="w-full mx-auto px-4 md:px-8 xl:px-20 py-4 flex flex-col xl:flex-row items-center justify-between gap-4 xl:gap-0">
         {/* Mobile Top Row: Logo & Icons */}
-        <div className="w-full md:w-auto flex items-center justify-between">
+        <div className="w-full xl:w-auto flex items-center justify-between">
           {/* Logo */}
           <div className="flex-shrink-0">
             <Link href="/">
@@ -22,7 +22,7 @@ export default function TopHeader() {
           </div>
 
           {/* Mobile Actions */}
-          <div className="flex md:hidden items-center space-x-5">
+          <div className="flex xl:hidden items-center space-x-5">
             <Link
               href="/account"
               className="hover:opacity-80 transition"
@@ -54,10 +54,10 @@ export default function TopHeader() {
         </div>
 
         {/* Middle Section (Search Bar) */}
-        <div className="w-full md:flex-grow md:max-w-xl lg:max-w-2xl md:mx-4 lg:mx-8">
+        <div className="w-full xl:flex-grow md:max-w-xl lg:max-w-[70%] xl:max-w-2xl md:mx-auto xl:mx-8">
           <div className="flex items-center bg-bg-main rounded-md overflow-hidden h-10 md:h-11">
             {/* Category Dropdown */}
-            <button className="hidden sm:flex items-center space-x-2 px-3 lg:px-4 h-full border-r border-gray-200 cursor-pointer hover:bg-gray-50 transition">
+            <button className="hidden sm:flex items-center space-x-2 px-3 lg:px-4 h-full border-r border-gray-200 cursor-pointer hover:bg-gray-50 transition flex-shrink-0">
               <span className="text-input-placeholder text-xs lg:text-sm whitespace-nowrap">
                 All categories
               </span>
@@ -93,9 +93,9 @@ export default function TopHeader() {
         </div>
 
         {/* Right Section (Contact & Desktop Actions) */}
-        <div className="hidden md:flex items-center space-x-4 lg:space-x-8 flex-shrink-0">
+        <div className="hidden xl:flex items-center space-x-6 xl:space-x-8 flex-shrink-0">
           {/* Contact Block */}
-          <div className="hidden lg:flex items-center space-x-3">
+          <div className="hidden xl:flex items-center space-x-3">
             <Image
               src="/icons/headphone.svg"
               alt="Call Us"
@@ -118,7 +118,7 @@ export default function TopHeader() {
           </div>
 
           {/* Action Icons */}
-          <div className="flex items-center space-x-4 lg:space-x-6">
+          <div className="flex items-center space-x-4 xl:space-x-6">
             <Link
               href="/account"
               className="hover:opacity-80 transition"
@@ -129,7 +129,7 @@ export default function TopHeader() {
                 alt="User Account"
                 width={22}
                 height={22}
-                className="lg:w-[24px] lg:h-[24px]"
+                className="xl:w-[24px] xl:h-[24px]"
               />
             </Link>
             <Link
@@ -142,7 +142,7 @@ export default function TopHeader() {
                 alt="Wishlist"
                 width={22}
                 height={22}
-                className="lg:w-[24px] lg:h-[24px]"
+                className="xl:w-[24px] xl:h-[24px]"
               />
             </Link>
 
@@ -157,13 +157,15 @@ export default function TopHeader() {
                   alt="Cart"
                   width={22}
                   height={22}
-                  className="lg:w-[24px] lg:h-[24px]"
+                  className="xl:w-[24px] xl:h-[24px]"
                 />
-                <span className="absolute -top-4 left-2 text-badge-yellow text-[20px] lg:text-[22px] font-medium leading-none">
+                <span className="absolute -top-4 left-2 text-badge-yellow text-[20px] xl:text-[22px] font-medium leading-none">
                   3
                 </span>
               </div>
-              <span className="hidden lg:inline text-sm font-medium">Cart</span>
+              <span className="hidden xl:inline text-sm font-medium pt-1">
+                Cart
+              </span>
             </Link>
           </div>
         </div>
