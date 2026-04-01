@@ -4,27 +4,61 @@ import Link from 'next/link';
 export default function TopHeader() {
   return (
     <header className="bg-header w-full text-white">
-      <div className="container mx-auto px-4 py-4 flex items-center justify-between">
-        {/* 1. Left Section (Logo) */}
-        <div className="flex-shrink-0">
-          <Link href="/">
-            <Image
-              src="/icons/winstore-logo-header.svg"
-              alt="Winstore Logo"
-              width={180}
-              height={45}
-              className="object-contain"
-              priority
-            />
-          </Link>
+      <div className="container mx-auto px-4 py-4 flex flex-col md:flex-row items-center justify-between gap-4 md:gap-0">
+        {/* Mobile Top Row: Logo & Icons */}
+        <div className="w-full md:w-auto flex items-center justify-between">
+          {/* Logo */}
+          <div className="flex-shrink-0">
+            <Link href="/">
+              <Image
+                src="/icons/winstore-logo-header.svg"
+                alt="Winstore Logo"
+                width={140}
+                height={35}
+                className="object-contain md:w-[180px] md:h-[45px]"
+                priority
+              />
+            </Link>
+          </div>
+
+          {/* Mobile Actions */}
+          <div className="flex md:hidden items-center space-x-5">
+            <Link
+              href="/account"
+              className="hover:opacity-80 transition"
+              aria-label="User Account"
+            >
+              <Image
+                src="/icons/user.svg"
+                alt="User Account"
+                width={20}
+                height={20}
+              />
+            </Link>
+            <Link
+              href="/cart"
+              className="flex items-center hover:opacity-80 transition relative"
+              aria-label="Cart"
+            >
+              <Image
+                src="/icons/shopping-cart.svg"
+                alt="Cart"
+                width={20}
+                height={20}
+              />
+              <span className="absolute -top-3 left-2 text-badge-yellow text-[18px] font-medium leading-none">
+                3
+              </span>
+            </Link>
+          </div>
         </div>
 
-        {/* 2. Middle Section (Search Bar) */}
-        <div className="flex-grow max-w-2xl mx-8">
-          <div className="flex items-center bg-bg-main rounded-md overflow-hidden h-11">
+        {/* Middle Section (Search Bar) */}
+        <div className="w-full md:flex-grow md:max-w-xl lg:max-w-2xl md:mx-4 lg:mx-8">
+          <div className="flex items-center bg-bg-main rounded-md overflow-hidden h-10 md:h-11">
             {/* Category Dropdown */}
-            <button className="flex items-center space-x-2 px-4 h-full border-r border-gray-200 cursor-pointer hover:bg-gray-50 transition">
-              <span className="text-input-placeholder text-sm">
+            <button className="hidden sm:flex items-center space-x-2 px-3 lg:px-4 h-full border-r border-gray-200 cursor-pointer hover:bg-gray-50 transition">
+              <span className="text-input-placeholder text-xs lg:text-sm whitespace-nowrap">
                 All categories
               </span>
               <Image
@@ -39,28 +73,29 @@ export default function TopHeader() {
             <input
               type="text"
               placeholder="Search for products"
-              className="flex-grow h-full px-4 outline-none text-black placeholder:text-input-placeholder bg-transparent"
+              className="flex-grow h-full px-3 lg:px-4 text-sm outline-none text-black placeholder:text-input-placeholder bg-transparent min-w-0"
             />
 
             {/* Search Button */}
             <button
               aria-label="Search"
-              className="h-full px-6 bg-btn-gray flex items-center justify-center cursor-pointer transition hover:brightness-95"
+              className="h-full px-4 lg:px-6 bg-btn-gray flex items-center justify-center cursor-pointer transition hover:brightness-95 flex-shrink-0"
             >
               <Image
                 src="/icons/search.svg"
                 alt="Search"
-                width={18}
-                height={18}
+                width={16}
+                height={16}
+                className="lg:w-[18px] lg:h-[18px]"
               />
             </button>
           </div>
         </div>
 
-        {/* 3. Right Section (Contact & Actions) */}
-        <div className="flex items-center space-x-8">
+        {/* Right Section (Contact & Desktop Actions) */}
+        <div className="hidden md:flex items-center space-x-4 lg:space-x-8 flex-shrink-0">
           {/* Contact Block */}
-          <div className="flex items-center space-x-3">
+          <div className="hidden lg:flex items-center space-x-3">
             <Image
               src="/icons/headphone.svg"
               alt="Call Us"
@@ -83,7 +118,7 @@ export default function TopHeader() {
           </div>
 
           {/* Action Icons */}
-          <div className="flex items-center space-x-6">
+          <div className="flex items-center space-x-4 lg:space-x-6">
             <Link
               href="/account"
               className="hover:opacity-80 transition"
@@ -92,8 +127,9 @@ export default function TopHeader() {
               <Image
                 src="/icons/user.svg"
                 alt="User Account"
-                width={24}
-                height={24}
+                width={22}
+                height={22}
+                className="lg:w-[24px] lg:h-[24px]"
               />
             </Link>
             <Link
@@ -104,8 +140,9 @@ export default function TopHeader() {
               <Image
                 src="/icons/heart.svg"
                 alt="Wishlist"
-                width={24}
-                height={24}
+                width={22}
+                height={22}
+                className="lg:w-[24px] lg:h-[24px]"
               />
             </Link>
 
@@ -118,14 +155,15 @@ export default function TopHeader() {
                 <Image
                   src="/icons/shopping-cart.svg"
                   alt="Cart"
-                  width={24}
-                  height={24}
+                  width={22}
+                  height={22}
+                  className="lg:w-[24px] lg:h-[24px]"
                 />
-                <span className="absolute -top-4 left-2 text-badge-yellow text-[22px] font-medium leading-none">
+                <span className="absolute -top-4 left-2 text-badge-yellow text-[20px] lg:text-[22px] font-medium leading-none">
                   3
                 </span>
               </div>
-              <span className="text-sm font-medium">Cart</span>
+              <span className="hidden lg:inline text-sm font-medium">Cart</span>
             </Link>
           </div>
         </div>

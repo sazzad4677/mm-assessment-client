@@ -21,12 +21,12 @@ const socialIcons = [
 
 export default function CategoryNav() {
   return (
-    <nav className="w-full bg-nav py-[16px] px-4">
-      <div className="max-w-[1500px] mx-auto flex flex-col md:flex-row justify-between items-center gap-4">
+    <nav className="w-full bg-nav py-3 md:py-[16px] px-4">
+      <div className="max-w-[1500px] mx-auto flex flex-col lg:flex-row justify-between items-center gap-4 lg:gap-0">
         {/* Left Group: Browse Categories & Navigation Links */}
-        <div className="flex flex-col md:flex-row items-center gap-6 md:gap-[45px]">
+        <div className="flex flex-col md:flex-row items-center gap-4 md:gap-6 lg:gap-[45px] w-full lg:w-auto">
           {/* Browse Categories Button */}
-          <button className="flex items-center gap-3 text-white hover:opacity-80 transition-opacity">
+          <button className="flex items-center gap-3 text-white hover:opacity-80 transition-opacity bg-white/10 md:bg-transparent px-4 py-2 md:p-0 rounded-md md:rounded-none w-full md:w-auto justify-center md:justify-start">
             <Image
               src="/icons/hamburger.svg"
               alt="Menu"
@@ -34,20 +34,18 @@ export default function CategoryNav() {
               height={18}
               className="w-[18px] h-[18px] object-contain brightness-0 invert"
             />
-            {/* Exactly 17px as shown in Figma Inspector */}
-            <span className="font-sans font-normal text-[17px] whitespace-nowrap">
+            <span className="font-sans font-medium md:font-normal text-[16px] md:text-[17px] whitespace-nowrap">
               Browse By Category
             </span>
           </button>
 
           {/* Navigation Links */}
-          <div className="flex flex-wrap justify-center items-center gap-5 xl:gap-8">
+          <div className="flex flex-wrap justify-center items-center gap-x-4 gap-y-2 md:gap-5 xl:gap-8 w-full md:w-auto">
             {navLinks.map((link) => (
               <Link
                 key={link.name}
                 href={link.href}
-                // Exactly 13px as shown in Figma Inspector
-                className="text-white font-sans font-normal text-[13px] hover:text-accent-primary transition-colors whitespace-nowrap"
+                className="text-white/90 md:text-white font-sans font-normal text-[12px] md:text-[13px] hover:text-accent-primary transition-colors whitespace-nowrap"
               >
                 {link.name}
               </Link>
@@ -56,7 +54,7 @@ export default function CategoryNav() {
         </div>
 
         {/* Right Side: Social Icons */}
-        <div className="flex items-center gap-5">
+        <div className="flex items-center gap-4 md:gap-5 mt-2 lg:mt-0">
           {socialIcons.map((icon) => (
             <Link
               key={icon.alt}
@@ -70,7 +68,7 @@ export default function CategoryNav() {
                 alt={icon.alt}
                 width={20}
                 height={20}
-                className="w-[20px] h-[20px] object-contain brightness-0 invert"
+                className="w-[18px] h-[18px] md:w-[20px] md:h-[20px] object-contain brightness-0 invert"
               />
             </Link>
           ))}
