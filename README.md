@@ -1,36 +1,93 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Betafore E-Commerce Frontend
 
-## Getting Started
+This is a modern e-commerce frontend built as a [Next.js](https://nextjs.org) application, using the App Router, Server Components, and Tailwind CSS.
 
-First, run the development server:
+## 🚀 How to Run the Project
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+### Prerequisites
+- Node.js (v18.17 or higher)
+- npm
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Setup
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/<your-username>/betafore-assessment.git
+   ```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+2. **Navigate to the project directory**
+   ```bash
+   cd betafore-assessment
+   ```
 
-## Learn More
+3. **Copy the environment file**
+   ```bash
+   cp .env.example .env.local
+   ```
 
-To learn more about Next.js, take a look at the following resources:
+4. **Install dependencies**
+   ```bash
+   npm install
+   ```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+5. **Run the development server**
+   ```bash
+   npm run dev
+   ```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+6. **Open the application**
+   Navigate to [http://localhost:3000](http://localhost:3000) in your browser.
 
-## Deploy on Vercel
+### Available Scripts
+- `npm run dev`: Starts the Next.js development server.
+- `npm run build`: Builds the application for production.
+- `npm start`: Starts the production server.
+- `npm run lint`: Runs ESLint to check for linting errors.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## 🏗️ Architecture Explanation
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+The project follows a clean, component-centric architecture leveraging the latest features of Next.js 15+ and React 19:
+
+- **Next.js App Router**: The application uses the `src/app` directory for routing. This provides layout support, Server Components by default, and streamlined data fetching.
+- **Server Actions for Data Fetching**: API calls (fetching categories, products, etc.) are encapsulated in Server Actions located in `src/app/actions`. This ensures secure, server-side data fetching without exposing API logic to the client, while keeping components clean and focused on rendering. We use `next: { revalidate: 3600 }` to cache responses efficiently.
+- **Component Anatomy**:
+  - `src/components/home`: Domain-specific components relative to the landing page (e.g., `CategoryCarousel`, `BestDealsSection`, `NewArrivals`).
+  - `src/components/layout`: Global layout pieces like Headers, Footers, and navigations.
+  - `src/components/ui`: Reusable, generic base UI elements (e.g., Tab Navigation, Hero Banner).
+- **Styling**: Tailwind CSS v4 is used for utility-first styling. The design strictly adheres to a centralized configuration, maintaining design system parity, semantic colors, and pixel-perfect responsiveness.
+- **Code Quality & DX Tools**: Husky, lint-staged, Prettier, and Commitlint are integrated to ensure code formatting, strict TypeScript/ESLint checks on staged files, and conventional commit messages prior to commits.
+
+## 💡 Assumptions Taken
+
+During implementation, a couple of key assumptions and workarounds were applied to meet the requirements:
+
+1. **Category Images Workaround:**
+   The `category` endpoint data did not contain images for product categories. To resolve this and display category cards properly, the following code is used to fetch the first product for each category to get a representative product image, falling back to static demo images if a category had no products.
+
+   ```typescript
+   // Fetch the first product of each category to get a product image
+   const categoriesWithImages = await Promise.all(
+     categories.map(async (cat, idx) => {
+       const catProducts =
+         cat.name === initialCategoryName
+           ? initialProducts
+           : await getProductsByCategory(cat.name);
+
+       return {
+         ...cat,
+         image:
+           catProducts.length > 0
+             ? catProducts[0].image
+             : idx % 2 === 0
+               ? '/demo-images/category-demo.png'
+               : '/demo-images/category-demo-2.png',
+       };
+     }),
+   );
+   ```
+
+2. **Responsive Design:**
+   The responsive layouts (for mobile, tablet, and extra-large screens) were completely implemented from my own guess and interpretation to ensure a visually cohesive experience across all devices.
+
+3. **Original Price Calculation:**
+   The external API only provides the current selling price for each product — there is no `originalPrice` or `discount` field in the response. To visually demonstrate a price-with-discount UI (as implied by the Figma design), the original price is computed as `currentPrice × 1.2` (i.e., a 20% discount is applied). This is a pure UI assumption and not real data.

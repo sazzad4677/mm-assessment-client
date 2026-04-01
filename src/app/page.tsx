@@ -43,12 +43,10 @@ export default async function Home() {
       <HeroBanner />
       <CategoryCarousel categories={categoriesWithImages} />
       <NewArrivals />
-      <div className="flex flex-col gap-6 p-4 md:p-10 bg-white">
-        <BestDealsSection
-          initialProducts={initialProducts}
-          categories={categories}
-        />
-      </div>
+      <BestDealsSection
+        initialProducts={initialProducts.slice(0, 12)}
+        categories={categories}
+      />
     </>
   );
 }
