@@ -12,37 +12,41 @@ This is a modern e-commerce frontend built as a [Next.js](https://nextjs.org) ap
 
 1. **Clone the repository**
    ```bash
-   git clone https://github.com/<your-username>/betafore-assessment.git
+   git clone https://github.com/sazzad4677/mm-assessment-client.git
    ```
 
 2. **Navigate to the project directory**
    ```bash
-   cd betafore-assessment
+   cd mm-assessment-client
    ```
 
-3. **Copy the environment file**
-   ```bash
-   cp .env.example .env.local
-   ```
 
-4. **Install dependencies**
+3. **Install dependencies**
    ```bash
    npm install
    ```
 
-5. **Run the development server**
+4. **Run the development server**
    ```bash
    npm run dev
    ```
 
-6. **Open the application**
+5. **Open the application**
    Navigate to [http://localhost:3000](http://localhost:3000) in your browser.
-
+   
 ### Available Scripts
 - `npm run dev`: Starts the Next.js development server.
 - `npm run build`: Builds the application for production.
 - `npm start`: Starts the production server.
 - `npm run lint`: Runs ESLint to check for linting errors.
+
+## 🔐 Environment Variables
+
+All runtime configuration is managed through environment variables. The project ships with a `.env.example` template — copy it and fill in the blanks before running the app.
+
+```bash
+cp .env.example .env.local
+```
 
 ## 🏗️ Architecture Explanation
 
