@@ -1,13 +1,27 @@
+'use client';
+
+import { useState } from 'react';
 import Button from '@/components/ui/Button';
 import PriceDisplay from '@/components/ui/PriceDisplay';
 import IconButtonBadge from '@/components/ui/IconButtonBadge';
 import Image from 'next/image';
 import ProductCard from '@/components/ui/ProductCard';
 import SectionTitle from '@/components/ui/SectionTitle';
+import TabNavigation from '@/components/ui/TabNavigation';
+
+const CATEGORIES = [
+  'KITCHEN APPLIANCES',
+  'CONSOLES',
+  'TV & VIDEOS',
+  'CELL PHONES',
+  'GROCERY',
+];
 
 export default function Home() {
+  const [activeTab, setActiveTab] = useState(CATEGORIES[0]);
+
   return (
-    <div className="flex flex-col gap-6 p-10">
+    <div className="flex flex-col gap-6 p-10 bg-white">
       <div className="flex flex-wrap gap-4 items-center">
         <Button>Button</Button>
         <Button variant="secondary">Button</Button>
@@ -38,11 +52,21 @@ export default function Home() {
       </div>
 
       <div className="w-full max-w-[1400px] mx-auto mt-10">
-        <SectionTitle
-          highlightWord="Featured"
-          mainText="Products"
-          className="mb-6"
-        />
+        <div className="flex flex-col xl:flex-row xl:items-end justify-between gap-6 mb-6 border-btn-gray/20 pb-2 xl:pb-0">
+          <SectionTitle
+            highlightWord="Best"
+            mainText="Deals"
+            className="flex-shrink-0"
+          />
+          <div className="w-full xl:w-auto xl:max-w-[70%] flex-grow">
+            <TabNavigation
+              tabs={CATEGORIES}
+              activeTab={activeTab}
+              onTabChange={setActiveTab}
+            />
+          </div>
+        </div>
+
         <div className="grid grid-cols-2 lg:grid-cols-4 xl:grid-cols-6 gap-6">
           <ProductCard
             image="/demo-images/demo-tv.jpg"
